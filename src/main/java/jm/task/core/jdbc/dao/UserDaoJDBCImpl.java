@@ -4,10 +4,12 @@ import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 
 import static jm.task.core.jdbc.util.Util.getConnection;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
+
 public class UserDaoJDBCImpl implements UserDao {
 
     private final Connection connection = Util.getConnection();
@@ -71,8 +73,9 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
+
+
     @Override
     public List<User> getAllUsers() {
         List<User> userList = new ArrayList<>();
@@ -96,7 +99,7 @@ public class UserDaoJDBCImpl implements UserDao {
     @Override
     public void cleanUsersTable() {
 
-        String sql = "DELETE FROM users";  // Удаляет все записи, но не саму таблицу
+        String sql = "DELETE FROM users";
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
