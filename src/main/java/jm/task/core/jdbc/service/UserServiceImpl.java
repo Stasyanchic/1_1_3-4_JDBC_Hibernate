@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService {
 
 
     public UserServiceImpl() {
-        this.userDao = new UserDaoJDBCImpl();
+        this.userDao = new UserDaoHibernateImpl();
     }
 
     @Override
